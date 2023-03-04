@@ -4,10 +4,25 @@ public class EmployeeWage {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
+    //Declearing Varibles
+    private final String company;
+    private final int empRatePerHour;
+    private final int numOfWorkingDays;
+    private final int maxHoursPerMonth;
 
-    public static int computeEmpWage(String company,int empRatePerHour,int numOfWorkingDays,int maxHoursPerMonth)
+
+    //Creating a Constuctor here
+    public EmployeeWage(String company,int empRatePerHour,int numOfWorkingDays,int maxHoursPerMonth)
     {
-        System.out.println("Welcome to the Employee Wage Computation Program");
+        this.company = company;
+        this.empRatePerHour = empRatePerHour;
+        this.numOfWorkingDays = numOfWorkingDays;
+        this.maxHoursPerMonth = maxHoursPerMonth;
+    }
+
+    public int computeEmpWage()
+    {
+
 
         int totalEmpWage = 0,totalWorkingDays = 0,totalEmpHrs = 0;
 
@@ -35,8 +50,8 @@ public class EmployeeWage {
 
             }
             totalEmpHrs += empHour;
-            int empWage = empHour * empRatePerHour;
-            totalEmpWage += empWage;
+            int empWage = empHour * empRatePerHour;  	// Calculating Employee Wage
+            totalEmpWage += empWage; 			// Giving a One By One Wage to the TotalEmpWage Variable
             System.out.println("Day-"+ totalWorkingDays + " Employee Wage is :" + empWage);
         }
         System.out.println("Total Employee Wage for Company "+company+" is:"+ totalEmpWage);
@@ -45,8 +60,12 @@ public class EmployeeWage {
 
     public static void main(String args[])
     {
-        computeEmpWage("DMart",20,2,10);
-        computeEmpWage("Reliance",10,4,20);
-        computeEmpWage("IBM",10,6,30);
+        System.out.println("Welcome to the Employee Wage Computation Program");
+        EmployeeWage dmart = new EmployeeWage("DMart",20,2,10); // Creating a Object of Each Company and Calling a Method Using Object
+        EmployeeWage reliance = new EmployeeWage("Reliance",10,4,20);
+        EmployeeWage ibm = new EmployeeWage("IBM",10,6,30);
+        dmart.computeEmpWage();   // Calling Method
+        reliance.computeEmpWage();
+        ibm.computeEmpWage();
     }
 }
