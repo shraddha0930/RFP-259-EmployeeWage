@@ -1,5 +1,7 @@
 package assignments.EmployeeWage;
 
+import java.util.ArrayList;
+
 public class CompanyEmpwage {
 
 	//Declearing Varibles
@@ -8,7 +10,9 @@ public class CompanyEmpwage {
 	public int numOfWorkingDays;
 	public int maxHoursPerMonth;
 	public int totalEmpWage = 0;
-	
+
+	public ArrayList<Integer> empDailyWage = new ArrayList<Integer>();   // Here Initailizing a IntegerType of Arraylist
+
 	//Creating a Constuctor here
 	public CompanyEmpwage(String company,int empRatePerHour,int numOfWorkingDays,int maxHoursPerMonth)
 	{
@@ -17,7 +21,6 @@ public class CompanyEmpwage {
 		this.numOfWorkingDays = numOfWorkingDays;
 		this.maxHoursPerMonth = maxHoursPerMonth;
 	}
-
 	// set TotalWage Variable to the Method
 	public void setTotalEmpWage(int totalEmpWage) {
 		this.totalEmpWage = totalEmpWage;
