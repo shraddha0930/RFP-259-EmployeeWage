@@ -1,25 +1,27 @@
 package assignments.EmployeeWage;
 
+import java.util.ArrayList;
+
 public class EmployeeWage implements InterfaceEmpwage {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
     private int numofCompany = 0;                 // Take a Varible for Starting Array with 0th index
-    private CompanyEmpwage[] companyEmpWageArray;        // Defining Array
-
+    private ArrayList<CompanyEmpwage> companyEmpArrayList;
     public EmployeeWage() {
-        companyEmpWageArray = new CompanyEmpwage[5];   // Create a Constructor and Initallizing Array with Size
+        companyEmpArrayList = new ArrayList<CompanyEmpwage>();  // Initallizing ArrayList in Default Constructor
     }
 
     public void addCompanyEmpwage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
-        companyEmpWageArray[numofCompany] = new CompanyEmpwage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
-        numofCompany++;
+        CompanyEmpwage companyEmpwage = new CompanyEmpwage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+        companyEmpArrayList.add(companyEmpwage);
     }
 
     public void computeEmpWage() {
         for (int i = 0; i < numofCompany; i++) {
-            companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
-            System.out.println(companyEmpWageArray[i].company + " Total Wage is: " + companyEmpWageArray[i].totalEmpWage);
+            CompanyEmpwage companyEmpWage = companyEmpArrayList.get(i);
+            companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
+            System.out.println(companyEmpWage.company+" Total Wage is: "+ companyEmpWage.totalEmpWage);
         }
     }
 
