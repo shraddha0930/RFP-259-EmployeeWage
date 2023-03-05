@@ -1,6 +1,6 @@
 package assignments.EmployeeWage;
 
-public class EmployeeWage {
+public class EmployeeWage implements InterfaceEmpwage {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
@@ -11,12 +11,12 @@ public class EmployeeWage {
         companyEmpWageArray = new CompanyEmpwage[5];   // Create a Constructor and Initallizing Array with Size
     }
 
-    private void addCompanyEmpwage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+    public void addCompanyEmpwage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
         companyEmpWageArray[numofCompany] = new CompanyEmpwage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
         numofCompany++;
     }
 
-    private void computeEmpWage() {
+    public void computeEmpWage() {
         for (int i = 0; i < numofCompany; i++) {
             companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
             System.out.println(companyEmpWageArray[i].company + " Total Wage is: " + companyEmpWageArray[i].totalEmpWage);
